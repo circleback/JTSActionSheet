@@ -89,6 +89,7 @@
         self.button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         UIFont *font = (isCancelItem) ? theme.boldButtonFont : theme.normalButtonFont;
         self.button.titleLabel.font = font;
+        self.button.contentHorizontalAlignment = horizontalAlingmentFromTextAlignment(theme.textAlignment);
         
         if (item.destructive) {
             [self.button setTitleColor:theme.destructiveButtonColor forState:UIControlStateNormal];

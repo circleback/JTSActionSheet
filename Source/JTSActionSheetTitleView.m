@@ -43,11 +43,11 @@
         
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-        paragraphStyle.alignment = NSTextAlignmentCenter;
+        paragraphStyle.alignment = theme.textAlignment;
         NSDictionary *attributes = @{NSFontAttributeName : theme.titleFont,
                                      NSForegroundColorAttributeName : theme.titleColor,
                                      NSParagraphStyleAttributeName : paragraphStyle,
-                                     NSBaselineOffsetAttributeName : @(theme.titleBaselineOffset)
+                                     NSBaselineOffsetAttributeName : @(theme.titleBaselineOffset),
                                      };
         self.attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attributes];
         self.titleLabel.attributedText = self.attributedTitle;

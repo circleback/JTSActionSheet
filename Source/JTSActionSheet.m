@@ -10,9 +10,11 @@
 #import "JTSActionSheet_Protected.h"
 
 #import "JTSActionSheetButtonView.h"
+#import "JTSActionSheetAccessoryButtonView.h"
 #import "JTSActionSheetTitleView.h"
 #import "JTSActionSheetPresenter.h"
 #import "JTSActionSheetSeparatorView.h"
+
 
 @interface JTSActionSheet ()
 <
@@ -234,13 +236,30 @@
     for (NSInteger index = 0; index < items.count; index++) {
         JTSActionSheetItemViewPosition position = [self positionForIndex:index totalCount:ajdustedButtonCountForCornerLogic];
         JTSActionSheetItem *item = items[index];
-        JTSActionSheetButtonView *newButton = [[JTSActionSheetButtonView alloc]
-                                               initWithItem:item
-                                               isCancelItem:NO
-                                               delegate:self
-                                               theme:theme
-                                               position:position];
-        [buttons addObject:newButton];
+        if ([item isMemberOfClass:[JTSActionSheetAccessoryItem class]])
+        {
+            JTSActionSheetAccessoryButtonView *newButton = [[JTSActionSheetAccessoryButtonView alloc]
+                                                            initWithItem:item
+                                                            isCancelItem:NO
+                                                            delegate:self
+                                                            theme:theme
+                                                            position:position
+                                                            accessory:[(JTSActionSheetAccessoryItem *)item accessoryView]];
+            
+            [buttons addObject:newButton];
+        }
+        else if ([item isMemberOfClass:[JTSActionSheetItem class]])
+        {
+            JTSActionSheetButtonView *newButton = [[JTSActionSheetButtonView alloc]
+                                                   initWithItem:item
+                                                   isCancelItem:NO
+                                                   delegate:self
+                                                   theme:theme
+                                                   position:position];
+            
+            [buttons addObject:newButton];
+
+        }
     }
     
     return buttons;

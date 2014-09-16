@@ -37,6 +37,8 @@
     theme.separatorColor = JTSActionSheetDefaultSeparatorColor;
     theme.buttonHighlightOverlayColor = JTSActionSheetDefaultButtonHighlightOverlayColor;
     
+    theme.textAlignment = NSTextAlignmentCenter;
+    
     return theme;
 }
 

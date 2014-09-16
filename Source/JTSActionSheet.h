@@ -9,6 +9,7 @@
 @import UIKit;
 
 #import "JTSActionSheetItem.h"
+#import "JTSActionSheetAccessoryItem.h"
 #import "JTSActionSheetTheme.h"
 #import "JTSActionSheetConveniences.h"
 

@@ -22,7 +22,7 @@
                        action:(JTSActionBlock)actionBlock
                 isDestructive:(BOOL)isDestructive {
     
-    JTSActionSheetItem *item = [[JTSActionSheetItem alloc] init];
+    JTSActionSheetItem *item = [[self alloc] init];
     item.title = title;
     item.actionBlock = actionBlock;
     item.destructive = isDestructive;

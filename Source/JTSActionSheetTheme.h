@@ -36,6 +36,8 @@ typedef NS_ENUM(NSInteger, JTSActionSheetStyle) {
 @property (strong, nonatomic) UIColor *buttonHighlightOverlayColor;
 @property (strong, nonatomic) UIColor *backdropShadowColor;
 
+@property (assign, nonatomic) NSTextAlignment textAlignment;
+
 + (instancetype)defaultTheme;
 
 @end

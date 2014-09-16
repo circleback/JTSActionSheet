@@ -20,4 +20,20 @@ static inline JTSActionSheetItem * JTSActionSheetDefaultCancelItem(NSString *alt
     return [JTSActionSheetItem itemWithTitle:title action:nil isDestructive:NO];
 }
 
+NS_INLINE UIControlContentHorizontalAlignment horizontalAlingmentFromTextAlignment(NSTextAlignment alignment) {
+    switch (alignment) {
+        case NSTextAlignmentLeft:
+            return UIControlContentHorizontalAlignmentLeft;
+        case NSTextAlignmentCenter:
+            return UIControlContentHorizontalAlignmentCenter;
+        case NSTextAlignmentRight:
+            return UIControlContentHorizontalAlignmentLeft;
+        case NSTextAlignmentJustified:
+            return UIControlContentHorizontalAlignmentFill;
+        case NSTextAlignmentNatural:
+        default:
+            return UIControlContentHorizontalAlignmentCenter;
+    }
+}
+
 extern CGFloat const JTSActionSheetMargin;
