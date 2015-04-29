@@ -40,7 +40,10 @@
     self.currentViewController.delegate = self;
     self.currentViewController.view.frame = rootVC.view.frame;
     self.currentViewController.view.transform = rootVC.view.transform;
-    [rootVC.view.superview addSubview:self.currentViewController.view];
+    
+    // Need to add as subview to window. Otherwise it won't show the sheet
+    // when used in a modal with a nav controller inside.
+    [window addSubview:self.currentViewController.view];
     
     [self.currentViewController playPresentationAnimation:YES tintableUnderlyingView:rootVC.view];
 }
