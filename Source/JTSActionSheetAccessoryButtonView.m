@@ -51,6 +51,18 @@ static const CGFloat kAccessoryRightPadding = 10.0;
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGRect accessoryFrame = _accessory.frame;
+    accessoryFrame.origin.y = (self.bounds.size.height - _accessory.frame.size.height) / 2.0;
+    accessoryFrame.origin.x = self.bounds.size.width - _accessory.frame.size.width - kAccessoryRightPadding;
+    
+    _accessory.frame = accessoryFrame;
+}
+
+
 
 
 @end
